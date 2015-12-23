@@ -550,7 +550,7 @@ class Analysis(Application):
                     wlist.append(word)
 
             text = nltk.Text(wlist)
-            self.obj_txtWidget = analysisWidget(self.root,text,self.text,NB)
+            self.obj_txtWidget = AnalysisWidget(self.root,text,self.text,NB)
 
         except Exception as e:
             writeCalculations(self.text,e,True,NB)

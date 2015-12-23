@@ -23,6 +23,7 @@ dic={}
 
 hashtags=[]
 hashtag_cluster=[]
+NB = None
 
 def read_file(text,directory):
     global name,dic,hastags,hashtag_cluster
@@ -130,5 +131,5 @@ def _main_(text):
         y = str(each_user) + " has attention:"
         x = attentionOfUser(each_user)
         string = str(y) + str(x)
-        writeCalculations(text,string,False)
+        writeCalculations(text,string,False, NB)
 
