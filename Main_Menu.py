@@ -339,7 +339,7 @@ class Simulator(Application):
 
     def __createSimWidget(self):
 
-        self.obj_simWidget = simulatorWidget(self.root,self.Pre_canvas)
+        self.obj_simWidget = simulatorWidget(self.root,self.Pre_canvas,self.text)
 
 class Analysis(Application):
     def __init__(self,root,first_frame,canvas,text):

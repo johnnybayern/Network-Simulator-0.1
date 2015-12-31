@@ -65,7 +65,6 @@ class AnalysisWidget(object):
         # self.fDist.configure(fill=BOTH)
         self.fDist.pack(side=BOTTOM)
 
-
     def findValue(self):
         return self.Choice.get()
         
@@ -83,21 +82,14 @@ class AnalysisWidget(object):
 
     def __searchText(self):
         """
-
         :type self: object
         """
         # writeCalculations(self.textWidget,"-"*100 ,False,self.NB)
-        print_seperator(self.textWidget,"Search Text" ,False,self.NB)
+        print_seperator(self.textWidget,"Search Text",False,self.NB)
         # writeCalculations(self.textWidget,"-"*100 ,False,self.NB)
         self.readTextbox()
         for word in self.inputlist:
             values = capture_output(self.text.concordance, word)
-            # values = values[:len(values)-1]
-            # writeCalculations(self.textWidget,"*"*100 ,False,self.NB)
-            # print_seperator(self.textWidget,"Displaying %d of %d matches for %s" % (len(values),len(values),word),False,self.NB)
-            # writeCalculations(self.textWidget,"*"*100 ,False,self.NB)
-            #for i in range(len(values)):
-                # writeCalculations(self.textWidget,values[i][0]+" "+values[i][1]+" "+values[i][2],False,self.NB)
             writeCalculations(self.textWidget, values ,False,self.NB)
 
     def __searchSimilarText(self):
@@ -124,8 +116,6 @@ class AnalysisWidget(object):
         # writeCalculations(self.textWidget,"-"*100 ,False,self.NB)
         print_seperator(self.textWidget,"Dispersion Plot",False,self.NB)
         # writeCalculations(self.textWidget,"-"*100 ,False,self.NB)
-
-
         self.readTextbox()
         self.text.dispersion_plot(self.inputlist)
 

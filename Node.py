@@ -71,7 +71,3 @@ class Node:
     def __str__(self):
         return "Particle with position = " + str(self.position) + " and color = " + self.color
 
-
-
-
-    

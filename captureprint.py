@@ -20,4 +20,4 @@ def capture_output(func, *args):
     variable = stream.getvalue()   # This will get the "hello" string inside the variable
     return variable
 
-print capture_output(print_hello)
+# print capture_output(print_hello)

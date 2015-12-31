@@ -10,7 +10,7 @@ WIDTH -= 20
 HEIGHT -= 75
 BACKGROUND = "Grey"
 
-def writeCalculations(widget,text,error,NB):
+def writeCalculations(widget,text,error,NB=None):
     if error:
         widget.tag_configure('error',foreground='red')
         widget.insert(END,text,'error')
@@ -20,7 +20,7 @@ def writeCalculations(widget,text,error,NB):
     widget.insert(END,"\n")
 
 
-def print_seperator(widget, text, error, NB):
+def print_seperator(widget, text, error, NB=None):
     writeCalculations(widget, "-"*100, error, NB)
     writeCalculations(widget, text, error, NB)
     writeCalculations(widget, "-"*100, error, NB)

@@ -5,6 +5,9 @@ from constants import *
 import random as rd
 from Node import *
 import snap
+import networkx as nx
+import numpy.linalg
+import matplotlib.pyplot as plt
 # from shortestpath import *
 import shortest_path_sim as sps
 
@@ -12,14 +15,15 @@ import shortest_path_sim as sps
 COLOR_LIST = ["Red", "Green", "Blue", "White"]
 COUNTER=1
 
-class simulatorWidget():
-    def __init__(self,master,pre_canvas):
+
+class simulatorWidget:
+    def __init__(self,master,pre_canvas,textWidget):
         top = self.top = Toplevel(master)
 
         self.initValue_Checkbox = 1
-
+        self.textWidget = textWidget
         self.top.title("Simulator Settings")
-        self.top.geometry('%dx%d+%d+%d' % (300,300,10,500))
+        self.top.geometry('%dx%d+%d+%d' % (300,420,10,500))
         self.top.resizable(False,False)
         self.top.configure(background=BACKGROUND)
         self.Nodes_List = []
@@ -28,22 +32,22 @@ class simulatorWidget():
         self.canvas = pre_canvas.mainCanvas
 
         self.lb_nodes = Label(top,text="No. of Nodes",background=BACKGROUND)
-        self.lb_nodes.grid(row = 0,column = 0,sticky=(N,W),padx=10)
+        self.lb_nodes.grid(row = 0,column = 0,sticky=(N,E),pady=10)
 
         self.txt_nodes = Entry(top,font="Helvetica 16",width=10)
-        self.txt_nodes.grid(row = 0,column = 1,sticky= (N,W),padx=10)
+        self.txt_nodes.grid(row = 0,column = 1,sticky= (N,W),pady=10)
 
         self.lbl_Network = Label(top,text="Network ",background=BACKGROUND)
-        self.lbl_Network.grid(row=1,column=0,sticky=(N,W),padx=10,pady=10)
+        self.lbl_Network.grid(row=1,column=0,sticky=(N,E),pady=10)
 
         self.var_network = StringVar(top)
         self.var_network.set("Select Network")
 
         self.network_option = OptionMenu(top,self.var_network,"GenStar","GenRndGnm","GenForestFire","GenFull")
-        self.network_option.grid(row=1,column=1,sticky=(N,W),padx=10,pady=10)
+        self.network_option.grid(row=1,column=1,sticky=(N,W),pady=10)
 
         self.drawNodes = Button(top,text="Viz. Network",command=self.draw,background=BACKGROUND)
-        self.drawNodes.grid(row=2,column=0,sticky=(N,W),padx=10,pady=10)
+        self.drawNodes.grid(row=2,column=1,sticky=(N,W),padx=10,pady=10)
 
         self.lbl_commDetect = Label(top,text="Community Detection",background=BACKGROUND)
         self.lbl_commDetect.grid(row=3,column=0,sticky=(N,W),padx=10,pady=10)
@@ -60,11 +64,26 @@ class simulatorWidget():
         self.shortDButton = Button(top,text="Shortest Path",background=BACKGROUND,command=self.find_short_path)
         self.shortDButton.grid(row=5,column=1,sticky=(N,W),padx=10,pady=10)
 
-        #self.varEdges = IntVar()
         self.checkEdges = Checkbutton(top,text="Enable Edges",background=BACKGROUND
                                       ,command = self.show_edges) #variable = self.varEdges
         self.checkEdges.grid(row=6,column=0,sticky=(N,W),padx=10,pady=10)
         self.checkEdges.select()
+
+        self.eigenValueButton = Button(top,text="EigenValue Histogram",background=BACKGROUND,
+                                        command=self.draw_eigen_hist)
+        self.eigenValueButton.grid(row=6,column=1,sticky=(N,W),padx=10,pady=10)
+
+        self.btwnessButton = Button(top,text="Betweenness Centrality",background=BACKGROUND,
+                                    command=self.get_betweenness_centrality)
+        self.btwnessButton.grid(row=7,column=0)
+
+        self.degreeButton = Button(top,text="Degree Centrality",background=BACKGROUND,
+                                   command=self.get_degree_centrality)
+        self.degreeButton.grid(row=7,column=1)
+
+        self.closenessButton = Button(top,text="Closeness Centrality",background=BACKGROUND,
+                                      command=self.get_closeness_centrality)
+        self.closenessButton.grid(row=8,column=0)
 
     def show_edges(self):
         if self.initValue_Checkbox:
@@ -135,23 +154,28 @@ class simulatorWidget():
         self.nPoints = sum(int(i) for i in self.lst_Nodes)
 
         if self.Network == "GenStar":
-            print "GenStar is the network with points ",self.nPoints
+            writeCalculations(self.textWidget,"GenStar is the network with points :"+str(self.nPoints),False)
+            # print "GenStar is the network with points ",self.nPoints
             self.graph = snap.GenStar(snap.PNGraph, self.nPoints, True)
 
         if self.Network == "GenRndGnm":
-            print "GenRndGnm is the network with points ",self.nPoints
+            # print "GenRndGnm is the network with points ",self.nPoints
+            writeCalculations(self.textWidget,"GenRndGnm is the network with points :"+str(self.nPoints),False)
             self.graph = snap.GenRndGnm(snap.PNGraph,self.nPoints, self.nPoints)
 
         if self.Network == "GenForestFire":
-            print "GenForestFire is the network with points ",self.nPoints
+            # print "GenForestFire is the network with points ",self.nPoints
+            writeCalculations(self.textWidget,"GenForestFire is the network with points :"+str(self.nPoints),False)
             self.graph = snap.GenForestFire(self.nPoints, 0.5,0.5)
 
         if self.Network == "GenFull":
-            print "GenFull is the network with points ",self.nPoints
+            writeCalculations(self.textWidget,"GenFull is the network with points :"+str(self.nPoints),False)
+            # print "GenFull is the network with points ",self.nPoints
             self.graph = snap.GenFull(snap.PNGraph,self.nPoints)
 
         if self.Network == "GenCircle":
-            print "GenCircle is the network with points ",self.nPoints
+            writeCalculations(self.textWidget,"GenCircle is the network with points :"+str(self.nPoints),False)
+            # print "GenCircle is the network with points ",self.nPoints
             self.graph = snap.GenCircle(snap.PNGraph,self.nPoints,10,10)
 
         self.create_nodes(self.graph)
@@ -396,7 +420,55 @@ class simulatorWidget():
         SubG2 = snap.GetSubGraph(g, NIdV2)
         return SubG1, SubG2
 
-class Graph():
+    def draw_eigen_hist(self):
+        networkx_g = nx.Graph()
+        g = self.graph
+        for EI in g.Edges():
+            networkx_g.add_edge(EI.GetSrcNId(),EI.GetDstNId())
+            # print "edge is added", EI.GetSrcNId(), EI.GetDstNId()
+        L = nx.normalized_laplacian_matrix(networkx_g)
+        e = numpy.linalg.eigvals(L.A)
+        print_seperator(self.textWidget,"EigenValue Histogram",False)
+        #print("Largest eigenvalue:", max(e))
+        writeCalculations(self.textWidget,"Largest eigenvalue: " + str(max(e)),False)
+        writeCalculations(self.textWidget,"Smallest eigenvalue: " + str(min(e)),False)
+        #print("Smallest eigenvalue:", min(e))
+        #nx.draw(networkx_g)
+        plt.hist(e,bins=100) # histogram with 100 bins
+        plt.xlim(0,2)  # eigenvalues between 0 and 2
+        plt.show()
+
+    def get_betweenness_centrality(self):
+        networkx_g = nx.Graph()
+        g = self.graph
+        for EI in g.Edges():
+            networkx_g.add_edge(EI.GetSrcNId(), EI.GetDstNId())
+        b = nx.betweenness_centrality(networkx_g)
+        print_seperator(self.textWidget,"Betweenness Centrality",False)
+        for v in networkx_g.nodes():
+            writeCalculations(self.textWidget, str(v)+": "+str(b[v]), False)
+
+    def get_degree_centrality(self):
+        networkx_g = nx.Graph()
+        g = self.graph
+        for EI in g.Edges():
+            networkx_g.add_edge(EI.GetSrcNId(), EI.GetDstNId())
+        b = nx.degree_centrality(networkx_g)
+        print_seperator(self.textWidget,"Degree Centrality",False)
+        for v in networkx_g.nodes():
+            writeCalculations(self.textWidget, str(v)+": "+str(b[v]), False)
+
+    def get_closeness_centrality(self):
+        networkx_g = nx.Graph()
+        g = self.graph
+        for EI in g.Edges():
+            networkx_g.add_edge(EI.GetSrcNId(), EI.GetDstNId())
+        b = nx.closeness_centrality(networkx_g)
+        print_seperator(self.textWidget,"Closeness Centrality",False)
+        for v in networkx_g.nodes():
+            writeCalculations(self.textWidget, str(v)+": "+str(b[v]), False)
+
+class Graph:
     def __init__(self,g,Node_List,canvas,threshold):
         self.g = g
         self.total_community = []
@@ -475,7 +547,8 @@ class Graph():
     def followers(self,node):
         return self.g[node]
 
-class Community():
+
+class Community:
     def __init__(self,parent,threshold):
         self.parent = parent
         self.descendants =  []
@@ -493,6 +566,7 @@ class Community():
         if g.keys() <> 0 and len(self.descendants) < self.threshold:
             return True
         return False
+
 
 def maindraw():
     pass
