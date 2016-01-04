@@ -1,0 +1,6 @@
+# Directed graph: fastdetComm//fastCommunity_13.txt 
+# Save as tab-separated list of edges
+# Nodes: 3 Edges: 2
+# FromNodeId	ToNodeId
+63	36
+93	36

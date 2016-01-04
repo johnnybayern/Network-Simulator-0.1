@@ -10,9 +10,12 @@ import numpy.linalg
 import matplotlib.pyplot as plt
 # from shortestpath import *
 import shortest_path_sim as sps
-
+import fastdetCommunity as fd
+import os
 # Nodes_List = []
-COLOR_LIST = ["Red", "Green", "Blue", "White"]
+COLOR_LIST = ["Red", "Green", "Blue","Pink","LavenderBlush","HotPink","DeepPink","DarkViolet",
+"Purple"]
+# COLOR_LIST = ["Red", "Green", "Blue","Pink"]
 COUNTER = 1
 
 
@@ -38,6 +41,9 @@ class simulatorWidget:
         self.sna_frame = LabelFrame(top, text="Network Analysis", background=BACKGROUND)
         self.sna_frame.pack(padx=10, pady=10, expand=TRUE, fill=BOTH)
 
+        # self.det_frame = LabelFrame(self.sna_frame, text="Community Detection", background=BACKGROUND)
+        # self.det_frame.pack(padx=10, pady=10, expand=TRUE, fill=BOTH)
+
         self.lb_nodes = Label(self.generator_frame, text="Number of Nodes:", background=BACKGROUND)
         self.lb_nodes.grid(row=0, column=0, sticky=E, pady=10, padx=(10,0) )
 
@@ -60,15 +66,19 @@ class simulatorWidget:
         self.resetButton = Button(self.generator_frame, text="Reset", command=self.reset, background=BACKGROUND)
         self.resetButton.grid(row=2, column=0, padx=10, pady=10)
 
-        self.lbl_commDetect = Label(self.sna_frame, text="Community Detection", background=BACKGROUND)
-        self.lbl_commDetect.grid(row=3, column=0, sticky=E, pady=10)
+        # self.lbl_commDetect = Label(self.sna_frame, text="Community Detection", background=BACKGROUND)
+        # self.lbl_commDetect.grid(row=3, column=0, sticky=E, pady=10)
 
         self.txt_commDetect = Entry(self.sna_frame, font="Helvetica 14")
-        self.txt_commDetect.grid(row=3, column=1, sticky=E+W, padx=10, pady=10)
+        self.txt_commDetect.grid(row=3, column=1, sticky=W, padx=10, pady=10)
 
         self.btn_commDetect = Button(self.sna_frame, text="Detect Community", background=BACKGROUND,
                                      command=self.commDetection)
-        self.btn_commDetect.grid(row=4, column=1, sticky=E+W, padx=10, pady=(0,10))
+        self.btn_commDetect.grid(row=3, column=0, sticky=E+W, padx=10, pady=(0,10))
+
+        self.btn_fastcommDetect = Button(self.sna_frame, text="Fast Detect Community", background=BACKGROUND,
+                                     command=self.fastcommDetection)
+        self.btn_fastcommDetect.grid(row=4, column=0, sticky=E+W, padx=10, pady=(0,10))
 
         self.shortDButton = Button(self.sna_frame, text="Shortest Path", background=BACKGROUND,
                                    command=self.find_short_path)
@@ -204,6 +214,20 @@ class simulatorWidget:
         #     for foll in node.followers:
         #         str1 = str1 + "," + str(foll.id)
         #     print node.id,str1
+    def fastcommDetection(self):
+        self.reset_nodes_edges()
+        for node in self.Nodes_List:
+            id = node.itemNo
+            self.canvas.itemconfig(id,fill="white")
+        nodeInfo,nodeInfo_dict=fd.getNodeInfoTable(self.graph)
+        communities=fd.fastDetCommunity(nodeInfo,nodeInfo_dict,self.graph)
+        for c_n, c in communities.items():
+            snap.SaveEdgeList(c, 'fastdetComm//fastCommunity_'+str(c_n)+'.txt', 'Save as tab-separated list of edges')
+
+            nodelist = [node.GetId() for node in c.Nodes()]
+            col = rd.choice(COLOR_LIST)
+            for i in nodelist:
+                self.canvas.itemconfig(self.Nodes_List[i].itemNo,fill=col)
 
     def commDetection(self):
         # print "Community Detection Function"
@@ -326,6 +350,12 @@ class simulatorWidget:
             self.canvas.itemconfig(eachNode.itemNo, fill="white")
             for eachEdge in eachNode.lineItemNo:
                 self.canvas.itemconfig(eachEdge[0], state=HIDDEN)
+        filepath='fastdetComm' 
+        filelist=os.listdir(filepath)
+        for f in filelist:
+            ifile=os.path.join(filepath,f)
+            if os.path.isfile(ifile):
+                os.remove(ifile)
 
     def detectCommunity(self, comm_size, conn_degree):
         communities = {}  # Declaring communities dictionary
