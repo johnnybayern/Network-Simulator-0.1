@@ -1,5 +1,0 @@
-# Directed graph: fastdetComm//fastCommunity_2.txt 
-# Save as tab-separated list of edges
-# Nodes: 2 Edges: 1
-# FromNodeId	ToNodeId
-50	59

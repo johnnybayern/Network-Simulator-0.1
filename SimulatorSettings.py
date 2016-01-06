@@ -12,6 +12,11 @@ import matplotlib.pyplot as plt
 import shortest_path_sim as sps
 import fastdetCommunity as fd
 import os
+from collections import defaultdict
+import numpy
+from scipy.cluster import hierarchy
+from scipy.spatial import distance
+
 # Nodes_List = []
 COLOR_LIST = ["Red", "Green", "Blue","Pink","LavenderBlush","HotPink","DeepPink","DarkViolet",
 "Purple"]
@@ -70,15 +75,15 @@ class simulatorWidget:
         # self.lbl_commDetect.grid(row=3, column=0, sticky=E, pady=10)
 
         self.txt_commDetect = Entry(self.sna_frame, font="Helvetica 14")
-        self.txt_commDetect.grid(row=3, column=1, sticky=W, padx=10, pady=10)
+        self.txt_commDetect.grid(row=3, column=0, sticky=W, padx=10)
 
         self.btn_commDetect = Button(self.sna_frame, text="Detect Community", background=BACKGROUND,
                                      command=self.commDetection)
-        self.btn_commDetect.grid(row=3, column=0, sticky=E+W, padx=10, pady=(0,10))
+        self.btn_commDetect.grid(row=3, column=1, sticky=E+W, padx=10)
 
         self.btn_fastcommDetect = Button(self.sna_frame, text="Fast Detect Community", background=BACKGROUND,
-                                     command=self.fastcommDetection)
-        self.btn_fastcommDetect.grid(row=4, column=0, sticky=E+W, padx=10, pady=(0,10))
+                                         command=self.fastcommDetection)
+        self.btn_fastcommDetect.grid(row=4, column=1, sticky=E+W, padx=10)
 
         self.shortDButton = Button(self.sna_frame, text="Shortest Path", background=BACKGROUND,
                                    command=self.find_short_path)
@@ -88,21 +93,37 @@ class simulatorWidget:
                                        command=self.draw_eigen_hist)
         self.eigenValueButton.grid(row=5, column=0, sticky=E+W, padx=10, pady=10)
 
+        self.rcmButton = Button(self.sna_frame, text="rcm", background=BACKGROUND,
+                                command=self.rcm_matrix)
+        self.rcmButton.grid(row=5, column=1, sticky=E+W, padx=10, pady=10)
+
         self.btwnessButton = Button(self.sna_frame, text="Betweenness Centrality", background=BACKGROUND,
                                     command=self.get_betweenness_centrality)
         self.btwnessButton.grid(row=6, column=0, sticky=E+W, padx=10)
+
+        self.blockModelButton = Button(self.sna_frame, text="Block Model", background=BACKGROUND,
+                                       command=self.block_model)
+        self.blockModelButton.grid(row=6, column=1, sticky=E+W, padx=10)
 
         self.degreeButton = Button(self.sna_frame, text="Degree Centrality", background=BACKGROUND,
                                    command=self.get_degree_centrality)
         self.degreeButton.grid(row=7, column=0, sticky=E+W, padx=10)
 
+        self.degree_hist_Button = Button(self.sna_frame, text="Show Degree Histogram", background=BACKGROUND,
+                                         command=self.degree_histogram)
+        self.degree_hist_Button.grid(row=7, column=1, sticky=E+W, padx=10)
+
         self.closenessButton = Button(self.sna_frame, text="Closeness Centrality", background=BACKGROUND,
                                       command=self.get_closeness_centrality)
         self.closenessButton.grid(row=8, column=0, sticky=E+W, padx=10)
 
+        self.propertiesButton = Button(self.sna_frame, text="Network Properties", background=BACKGROUND,
+                                       command=self.get_graph_properties)
+        self.propertiesButton.grid(row=8, column=1, sticky=E+W, padx=10)
+
         self.checkEdges = Checkbutton(self.sna_frame, text="Enable Edges", background=BACKGROUND
                                       , command=self.show_edges)  # variable = self.varEdges
-        self.checkEdges.grid(row=8, column=1, sticky=E, padx=10)
+        self.checkEdges.grid(row=9, column=1, sticky=E, padx=10)
         self.checkEdges.select()
 
     def show_edges(self):
@@ -214,6 +235,7 @@ class simulatorWidget:
         #     for foll in node.followers:
         #         str1 = str1 + "," + str(foll.id)
         #     print node.id,str1
+
     def fastcommDetection(self):
         self.reset_nodes_edges()
         for node in self.Nodes_List:
@@ -510,6 +532,153 @@ class simulatorWidget:
         for v in networkx_g.nodes():
             writeCalculations(self.textWidget, str(v) + ": " + str(b[v]), False)
 
+    def degree_histogram(self):
+        networkx_g = nx.Graph()
+        g = self.graph
+        for EI in g.Edges():
+            networkx_g.add_edge(EI.GetSrcNId(), EI.GetDstNId())
+        degree_sequence = sorted(nx.degree(networkx_g).values(),reverse=True) # degree sequence
+        #print "Degree sequence", degree_sequence
+        dmax = max(degree_sequence)
+
+        plt.loglog(degree_sequence,'b-',marker='o')
+        plt.title("Degree rank plot")
+        plt.ylabel("degree")
+        plt.xlabel("rank")
+
+        # draw graph in inset
+        plt.axes([0.45,0.45,0.45,0.45])
+        Gcc = sorted(nx.connected_component_subgraphs(networkx_g), key=len, reverse=True)[0]
+        pos = nx.spring_layout(Gcc)
+        plt.axis('off')
+        nx.draw_networkx_nodes(Gcc,pos,node_size=20)
+        nx.draw_networkx_edges(Gcc,pos,alpha=0.4)
+
+        # plt.savefig("degree_histogram.png")
+        plt.show()
+
+    def block_model(self):
+        networkx_g = nx.Graph()
+        g = self.graph
+        for EI in g.Edges():
+            networkx_g.add_edge(EI.GetSrcNId(), EI.GetDstNId())
+        edge = nx.write_edgelist(networkx_g,"test.edgelist")
+        edlst = nx.read_edgelist("test.edgelist")
+        # Extract largest connected component into graph H
+        temp = nx.connected_component_subgraphs(edlst)
+        next_component = next(temp, None)
+        # H=next_temp[0]
+        # Makes life easier to have consecutively labeled integer nodes
+        H=nx.convert_node_labels_to_integers(next_component)
+        # Create parititions with hierarchical clustering
+        partitions = create_hc(H)
+        # Build blockmodel graph
+        BM = nx.blockmodel(H,partitions)
+
+
+        # Draw original graph
+        pos=nx.spring_layout(H,iterations=100)
+        fig=plt.figure(1,figsize=(6,10))
+        ax=fig.add_subplot(211)
+        nx.draw(H,pos,with_labels=False,node_size=10)
+        plt.xlim(0,1)
+        plt.ylim(0,1)
+
+        # Draw block model with weighted edges and nodes sized by number of internal nodes
+        node_size=[BM.node[x]['nnodes']*10 for x in BM.nodes()]
+        edge_width=[(2*d['weight']) for (u,v,d) in BM.edges(data=True)]
+        # Set positions to mean of positions of internal nodes from original graph
+        posBM={}
+        for n in BM:
+            xy=numpy.array([pos[u] for u in BM.node[n]['graph']])
+            posBM[n]=xy.mean(axis=0)
+        ax=fig.add_subplot(212)
+        nx.draw(BM,posBM,node_size=node_size,width=edge_width,with_labels=False)
+        plt.xlim(0,1)
+        plt.ylim(0,1)
+        plt.axis('off')
+        # plt.savefig('hartford_drug_block_model.png')
+        plt.show()
+
+    def rcm_matrix(self):
+        # Cuthill-McKee ordering of matrices
+        # The reverse Cuthill-McKee algorithm gives a sparse matrix ordering that
+        # reduces the matrix bandwidth.
+        # Requires NumPy
+        # Copyright (C) 2011 by
+        # Aric Hagberg <aric.hagberg@gmail.com>
+        # BSD License
+        networkx_g = nx.Graph()
+        g = self.graph
+        for EI in g.Edges():
+            networkx_g.add_edge(EI.GetSrcNId(), EI.GetDstNId())
+        rcm = list(nx.utils.reverse_cuthill_mckee_ordering(networkx_g))
+        print_seperator(self.textWidget, "Cuthill-McKee ordering of matrices", False)
+        writeCalculations(self.textWidget, "ordering->" + str(rcm), False)
+
+        writeCalculations(self.textWidget, "unordered Laplacian matrix", False)
+        A = nx.laplacian_matrix(networkx_g)
+        x,y = numpy.nonzero(A)
+        #print("lower bandwidth:",(y-x).max())
+        #print("upper bandwidth:",(x-y).max())
+        bandwith1 = (y-x).max()+(x-y).max()+1
+        writeCalculations(self.textWidget, "bandwidth: " + str(bandwith1), False)
+        writeCalculations(self.textWidget, str(A), False)
+
+        B = nx.laplacian_matrix(networkx_g,nodelist=rcm)
+        writeCalculations(self.textWidget, "low-bandwidth Laplacian matrix", False)
+        x,y = numpy.nonzero(B)
+        #print("lower bandwidth:",(y-x).max())
+        #print("upper bandwidth:",(x-y).max())
+        bandwith2 = (y-x).max()+(x-y).max()+1
+        writeCalculations(self.textWidget, "bandwidth: " + str(bandwith2), False)
+        writeCalculations(self.textWidget, str(B), False)
+
+    def get_graph_properties(self):
+        networkx_g = nx.Graph()
+        g = self.graph
+        for EI in g.Edges():
+            networkx_g.add_edge(EI.GetSrcNId(), EI.GetDstNId())
+
+        pathlengths=[]
+
+        print_seperator(self.textWidget, "Network Properties", False)
+        writeCalculations(self.textWidget, "source vertex {target:length, }", False)
+        for v in networkx_g.nodes():
+            spl=nx.single_source_shortest_path_length(networkx_g,v)
+            # writeCalculations(self.textWidget, str(v)+" "+str(spl), False)
+            for p in spl.values():
+                pathlengths.append(p)
+
+        writeCalculations(self.textWidget, "", False)
+
+        writeCalculations(self.textWidget, "average shortest path length " +
+                          str(sum(pathlengths)/len(pathlengths)), False)
+        # histogram of path lengths
+        dist = {}
+        for p in pathlengths:
+            if p in dist:
+                dist[p] += 1
+            else:
+                dist[p] = 1
+
+        writeCalculations(self.textWidget, "", False)
+        writeCalculations(self.textWidget, "length #paths", False)
+
+        verts = dist.keys()
+        for d in sorted(verts):
+            writeCalculations(self.textWidget, str(d) + " " + str(dist[d]), False)
+
+        try:
+            writeCalculations(self.textWidget, "radius: " + str(nx.radius(networkx_g)), False)
+            writeCalculations(self.textWidget, "diameter: " + str(nx.diameter(networkx_g)), False)
+            writeCalculations(self.textWidget, "eccentricity: " + str(nx.eccentricity(networkx_g)), False)
+            writeCalculations(self.textWidget, "center: " + str(nx.center(networkx_g)), False)
+            writeCalculations(self.textWidget, "periphery: " + str(nx.periphery(networkx_g)), False)
+            writeCalculations(self.textWidget, "density: " + str(nx.density(networkx_g)), False)
+        except Exception as e:
+            writeCalculations(self.textWidget, str(e) + "\nPlease use finite networks", TRUE)
+
 
 class Graph:
     def __init__(self, g, Node_List, canvas, threshold):
@@ -611,3 +780,22 @@ class Community:
 
 def maindraw():
     pass
+
+# for block model
+def create_hc(H):
+    """Creates hierarchical cluster of graph G from distance matrix"""
+    path_length=nx.all_pairs_shortest_path_length(H)
+    distances=numpy.zeros((len(H),len(H)))
+    for u,p in path_length.items():
+        for v,d in p.items():
+            distances[u][v]=d
+    # Create hierarchical cluster
+    Y=distance.squareform(distances)
+    Z=hierarchy.complete(Y)  # Creates HC using farthest point linkage
+    # This partition selection is arbitrary, for illustrive purposes
+    membership=list(hierarchy.fcluster(Z,t=1.15))
+    # Create collection of lists for blockmodel
+    partition=defaultdict(list)
+    for n,p in zip(list(range(len(H))),membership):
+        partition[p].append(n)
+    return list(partition.values())

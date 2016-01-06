@@ -2,7 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69e9dd6d-b126-4954-93e1-89c64f2a3e95" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_10.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_11.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_12.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_13.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_14.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_15.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_16.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_17.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_18.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_19.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_4.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_5.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_6.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_7.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fastdetComm/fastCommunity_9.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimulatorSettings.py" afterPath="$PROJECT_DIR$/SimulatorSettings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/results.txt" afterPath="$PROJECT_DIR$/results.txt" />
     </list>
     <ignored path="Network-Simulator-0.1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,44 +47,57 @@
       <file leaf-file-name="SimulatorSettings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SimulatorSettings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.625585">
-              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5272727">
+              <caret line="677" column="68" selection-start-line="677" selection-start-column="68" selection-end-line="677" selection-end-column="68" />
               <folding>
                 <element signature="e#22#44#0" expanded="true" />
-                <element signature="e#4581#5158#0" expanded="false" />
-                <element signature="e#5194#5360#0" expanded="false" />
-                <element signature="e#5405#6902#0" expanded="false" />
-                <element signature="e#6932#9133#0" expanded="false" />
-                <element signature="e#9172#10313#0" expanded="false" />
-                <element signature="e#10372#10989#0" expanded="false" />
-                <element signature="e#11030#11435#0" expanded="false" />
-                <element signature="e#11466#11654#0" expanded="false" />
-                <element signature="e#11702#13887#0" expanded="false" />
-                <element signature="e#13930#14143#0" expanded="false" />
-                <element signature="e#14208#16297#0" expanded="false" />
-                <element signature="e#16338#16560#0" expanded="false" />
-                <element signature="e#16613#17282#0" expanded="false" />
-                <element signature="e#17339#17763#0" expanded="false" />
-                <element signature="e#17804#18608#0" expanded="false" />
-                <element signature="e#18660#19041#0" expanded="false" />
-                <element signature="e#19088#19459#0" expanded="false" />
-                <element signature="e#19509#19886#0" expanded="false" />
-                <element signature="e#19967#20159#0" expanded="false" />
-                <element signature="e#20195#20604#0" expanded="false" />
-                <element signature="e#22265#22774#0" expanded="false" />
+                <element signature="e#6227#6804#0" expanded="false" />
+                <element signature="e#6840#7006#0" expanded="false" />
+                <element signature="e#7051#8548#0" expanded="false" />
+                <element signature="e#8578#10779#0" expanded="false" />
+                <element signature="e#10822#11471#0" expanded="false" />
+                <element signature="e#11510#12651#0" expanded="false" />
+                <element signature="e#12710#13327#0" expanded="false" />
+                <element signature="e#13368#13773#0" expanded="false" />
+                <element signature="e#13804#13992#0" expanded="false" />
+                <element signature="e#14040#16225#0" expanded="false" />
+                <element signature="e#14040#14106#1" expanded="false" />
+                <element signature="e#16268#16692#0" expanded="false" />
+                <element signature="e#16757#18846#0" expanded="false" />
+                <element signature="e#18887#19109#0" expanded="false" />
+                <element signature="e#19162#19831#0" expanded="false" />
+                <element signature="e#19888#20312#0" expanded="false" />
+                <element signature="e#20353#21157#0" expanded="false" />
+                <element signature="e#21209#21590#0" expanded="false" />
+                <element signature="e#21637#22008#0" expanded="false" />
+                <element signature="e#22058#22435#0" expanded="false" />
+                <element signature="e#22477#23338#0" expanded="false" />
+                <element signature="e#23375#25062#0" expanded="false" />
+                <element signature="e#25098#26653#0" expanded="false" />
+                <element signature="e#28683#31018#0" expanded="false" />
+                <element signature="e#28744#28936#0" expanded="false" />
+                <element signature="e#28972#29381#0" expanded="false" />
+                <element signature="e#29421#29850#0" expanded="false" />
+                <element signature="e#29889#30809#0" expanded="false" />
+                <element signature="e#30847#30958#0" expanded="false" />
+                <element signature="e#30999#31018#0" expanded="false" />
+                <element signature="e#31042#31551#0" expanded="false" />
+                <element signature="e#31089#31174#0" expanded="false" />
+                <element signature="e#31207#31309#0" expanded="false" />
+                <element signature="e#31356#31385#0" expanded="false" />
+                <element signature="e#31421#31551#0" expanded="false" />
+                <element signature="e#31620#32338#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="textAnalysis.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/textAnalysis.py">
+      <file leaf-file-name="properties.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Downloads/properties.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="23" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="23" />
-              <folding>
-                <element signature="e#74#93#0" expanded="true" />
-              </folding>
+              <caret line="41" column="27" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -94,6 +128,8 @@
         <option value="$PROJECT_DIR$/Main_Menu.py" />
         <option value="$PROJECT_DIR$/constants.py" />
         <option value="$PROJECT_DIR$/textAnalysis.py" />
+        <option value="$USER_HOME$/Downloads/mayavi2_spring.py" />
+        <option value="$USER_HOME$/Downloads/blockmodel.py" />
         <option value="$PROJECT_DIR$/SimulatorSettings.py" />
       </list>
     </option>
@@ -188,41 +224,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RunManager" selected="Python.Main_Menu">
-    <configuration default="false" name="temp" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Network-Simulator-0.1" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/temp.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Network-Simulator-0.1" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="parallel_betweenness" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="blockmodel" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -234,12 +236,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Network-Simulator-0.1" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/parallel_betweenness.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/blockmodel.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="krackhardt_centrality" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="SimulatorSettings" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Network-Simulator-0.1" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SimulatorSettings.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="davis_club" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -251,7 +270,41 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Network-Simulator-0.1" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/krackhardt_centrality.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/davis_club.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="rcm" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Network-Simulator-0.1" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/rcm.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="properties" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Network-Simulator-0.1" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/properties.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -412,20 +465,22 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <list size="6">
+    <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Python.horan" />
       <item index="1" class="java.lang.String" itemvalue="Python.Main_Menu" />
-      <item index="2" class="java.lang.String" itemvalue="Python.temp" />
-      <item index="3" class="java.lang.String" itemvalue="Python.test" />
-      <item index="4" class="java.lang.String" itemvalue="Python.parallel_betweenness" />
-      <item index="5" class="java.lang.String" itemvalue="Python.krackhardt_centrality" />
+      <item index="2" class="java.lang.String" itemvalue="Python.blockmodel" />
+      <item index="3" class="java.lang.String" itemvalue="Python.SimulatorSettings" />
+      <item index="4" class="java.lang.String" itemvalue="Python.davis_club" />
+      <item index="5" class="java.lang.String" itemvalue="Python.rcm" />
+      <item index="6" class="java.lang.String" itemvalue="Python.properties" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.krackhardt_centrality" />
-        <item index="1" class="java.lang.String" itemvalue="Python.parallel_betweenness" />
-        <item index="2" class="java.lang.String" itemvalue="Python.test" />
-        <item index="3" class="java.lang.String" itemvalue="Python.temp" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.SimulatorSettings" />
+        <item index="1" class="java.lang.String" itemvalue="Python.properties" />
+        <item index="2" class="java.lang.String" itemvalue="Python.rcm" />
+        <item index="3" class="java.lang.String" itemvalue="Python.davis_club" />
+        <item index="4" class="java.lang.String" itemvalue="Python.blockmodel" />
       </list>
     </recent_temporary>
   </component>
@@ -464,7 +519,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25462228" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995495" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3991323" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39864865" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -489,96 +544,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="19" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$USER_HOME$/Downloads/blockmodel.py</url>
+          <line>62</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/horan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="132" column="38" selection-start-line="132" selection-start-column="38" selection-end-line="132" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main_Menu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="552" column="17" selection-start-line="552" selection-start-column="17" selection-end-line="552" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/temp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main_Menu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="552" column="17" selection-start-line="552" selection-start-column="17" selection-end-line="552" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/temp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main_Menu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="136" column="54" selection-start-line="136" selection-start-column="54" selection-end-line="136" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/textAnalysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="37" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="20" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SimulatorSettings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="221" column="29" selection-start-line="204" selection-start-column="0" selection-end-line="221" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shortestpath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main_canvas.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -783,33 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_canvas.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.388889">
-          <caret line="612" column="17" selection-start-line="612" selection-start-column="17" selection-end-line="612" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main_Menu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="341" column="80" selection-start-line="341" selection-start-column="80" selection-end-line="341" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Python2711/Lib/lib-tk/Tkinter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2138" column="13" selection-start-line="2138" selection-start-column="13" selection-end-line="2138" selection-end-column="13" />
-          <folding>
-            <element signature="e#14311#60009#0" expanded="false" />
-            <element signature="e#86008#87138#0" expanded="false" />
-            <element signature="e#87166#89111#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/krackhardt_centrality.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -821,14 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6234818">
           <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -856,33 +798,182 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fastdetCommunity.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.074883">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Python2711/Lib/site-packages/networkx/utils/decorators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Python2711/Lib/site-packages/networkx/algorithms/shortest_paths/generic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.725429">
+          <caret line="142" column="67" selection-start-line="142" selection-start-column="67" selection-end-line="142" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Python2711/Lib/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.338533">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Python2711/Lib/site-packages/networkx/classes/graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="867" column="0" selection-start-line="867" selection-start-column="0" selection-end-line="867" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Python2711/Lib/lib-tk/Tkinter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37125748">
+          <caret line="1535" column="0" selection-start-line="1535" selection-start-column="0" selection-end-line="1535" selection-end-column="0" />
+          <folding>
+            <element signature="e#14311#60009#0" expanded="false" />
+            <element signature="e#86008#87138#0" expanded="false" />
+            <element signature="e#87166#89111#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/blockmodel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding>
+            <element signature="e#778#813#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/davis_club.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34321374">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Python2711/Lib/site-packages/networkx/utils/rcm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3322933">
+          <caret line="73" column="4" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Python2711/Lib/site-packages/networkx/relabel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/rcm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="30" selection-end-column="8" />
+          <folding>
+            <element signature="e#240#261#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Python2711/Lib/lib-tk/ttk.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3322933">
+          <caret line="836" column="8" selection-start-line="836" selection-start-column="8" selection-end-line="836" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_canvas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="34.75">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main_Menu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5833335">
+          <caret line="87" column="35" selection-start-line="87" selection-start-column="27" selection-end-line="87" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/properties.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="27" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45085803">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SimulatorSettings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.625585">
-          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5272727">
+          <caret line="677" column="68" selection-start-line="677" selection-start-column="68" selection-end-line="677" selection-end-column="68" />
           <folding>
             <element signature="e#22#44#0" expanded="true" />
-            <element signature="e#4581#5158#0" expanded="false" />
-            <element signature="e#5194#5360#0" expanded="false" />
-            <element signature="e#5405#6902#0" expanded="false" />
-            <element signature="e#6932#9133#0" expanded="false" />
-            <element signature="e#9172#10313#0" expanded="false" />
-            <element signature="e#10372#10989#0" expanded="false" />
-            <element signature="e#11030#11435#0" expanded="false" />
-            <element signature="e#11466#11654#0" expanded="false" />
-            <element signature="e#11702#13887#0" expanded="false" />
-            <element signature="e#13930#14143#0" expanded="false" />
-            <element signature="e#14208#16297#0" expanded="false" />
-            <element signature="e#16338#16560#0" expanded="false" />
-            <element signature="e#16613#17282#0" expanded="false" />
-            <element signature="e#17339#17763#0" expanded="false" />
-            <element signature="e#17804#18608#0" expanded="false" />
-            <element signature="e#18660#19041#0" expanded="false" />
-            <element signature="e#19088#19459#0" expanded="false" />
-            <element signature="e#19509#19886#0" expanded="false" />
-            <element signature="e#19967#20159#0" expanded="false" />
-            <element signature="e#20195#20604#0" expanded="false" />
-            <element signature="e#22265#22774#0" expanded="false" />
+            <element signature="e#6227#6804#0" expanded="false" />
+            <element signature="e#6840#7006#0" expanded="false" />
+            <element signature="e#7051#8548#0" expanded="false" />
+            <element signature="e#8578#10779#0" expanded="false" />
+            <element signature="e#10822#11471#0" expanded="false" />
+            <element signature="e#11510#12651#0" expanded="false" />
+            <element signature="e#12710#13327#0" expanded="false" />
+            <element signature="e#13368#13773#0" expanded="false" />
+            <element signature="e#13804#13992#0" expanded="false" />
+            <element signature="e#14040#16225#0" expanded="false" />
+            <element signature="e#14040#14106#1" expanded="false" />
+            <element signature="e#16268#16692#0" expanded="false" />
+            <element signature="e#16757#18846#0" expanded="false" />
+            <element signature="e#18887#19109#0" expanded="false" />
+            <element signature="e#19162#19831#0" expanded="false" />
+            <element signature="e#19888#20312#0" expanded="false" />
+            <element signature="e#20353#21157#0" expanded="false" />
+            <element signature="e#21209#21590#0" expanded="false" />
+            <element signature="e#21637#22008#0" expanded="false" />
+            <element signature="e#22058#22435#0" expanded="false" />
+            <element signature="e#22477#23338#0" expanded="false" />
+            <element signature="e#23375#25062#0" expanded="false" />
+            <element signature="e#25098#26653#0" expanded="false" />
+            <element signature="e#28683#31018#0" expanded="false" />
+            <element signature="e#28744#28936#0" expanded="false" />
+            <element signature="e#28972#29381#0" expanded="false" />
+            <element signature="e#29421#29850#0" expanded="false" />
+            <element signature="e#29889#30809#0" expanded="false" />
+            <element signature="e#30847#30958#0" expanded="false" />
+            <element signature="e#30999#31018#0" expanded="false" />
+            <element signature="e#31042#31551#0" expanded="false" />
+            <element signature="e#31089#31174#0" expanded="false" />
+            <element signature="e#31207#31309#0" expanded="false" />
+            <element signature="e#31356#31385#0" expanded="false" />
+            <element signature="e#31421#31551#0" expanded="false" />
+            <element signature="e#31620#32338#0" expanded="false" />
           </folding>
         </state>
       </provider>
