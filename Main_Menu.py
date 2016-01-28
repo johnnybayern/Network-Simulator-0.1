@@ -14,6 +14,7 @@ except:
     from textAnalysis import *
     from SimulatorSettings import *
     import horan as hr
+    import regionalization as reg
 
 #CONSTANTS FOR GLOBAL USE
 ROOT = None
@@ -408,6 +409,9 @@ class Analysis(Application):
         self.btn_attention = Button(self.fr_sub1,text="Find Attention",command = self.__readfile)
         self.btn_attention.grid(row=2,column=0,sticky=(E),padx=5,pady=5)
 
+        self.btn_regionlization = Button(self.fr_sub1,text="Regionlization",command = self.__regionalization)
+        self.btn_regionlization.grid(row=3,column=0,sticky=(E),padx=5,pady=5)
+
 
 
         # writeCalculations(self.text,self.__openShpfile.__doc__,True)
@@ -558,6 +562,9 @@ class Analysis(Application):
     def __readfile(self):
         directory=tkFileDialog.askopenfilename(filetypes=[("CSV","*.csv")])
         hr.read_file(self.text,directory)
+
+    def __regionalization(self):
+        reg.regionlization(self.text)
 
 
 if __name__ == '__main__':

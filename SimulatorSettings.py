@@ -87,7 +87,7 @@ class simulatorWidget:
 
         self.shortDButton = Button(self.sna_frame, text="Shortest Path", background=BACKGROUND,
                                    command=self.find_short_path)
-        self.shortDButton.grid(row=7, column=1, sticky=E, padx=10)
+        self.shortDButton.grid(row=4, column=0, sticky=E+W, padx=10, pady=(10,0))
 
         self.eigenValueButton = Button(self.sna_frame, text="EigenValue Histogram", background=BACKGROUND,
                                        command=self.draw_eigen_hist)
@@ -332,7 +332,9 @@ class simulatorWidget:
         # print "x ",self.canvas.gettags(widget_id)[0]," y ",self.canvas.gettags(widget_id)[1]
         if self.canvas.gettags(widget_id)[0] == "id":
             id = self.canvas.gettags(widget_id)[1]
-            print "Node id :", id, [i.id for i in self.Nodes_List[int(id)].followers]
+            node_id_text = "Node id :" + str(id) + str([i.id for i in self.Nodes_List[int(id)].followers])
+            writeCalculations(self.textWidget, node_id_text, FALSE)
+            # print "Node id :", id, [i.id for i in self.Nodes_List[int(id)].followers]
             self.canvas.itemconfig(self.Nodes_List[int(id)].itemNo, fill="red")
             self.select_nodes.append(str(id))
             if len(self.select_nodes) > 1 and len(self.select_nodes) == 2:
@@ -346,8 +348,12 @@ class simulatorWidget:
                 else:
                     try:
                         steps, path = sps.shortest_path(self.sp_Graph, self.select_nodes[0], self.select_nodes[1])
-                        print "Number of steps: ", steps, "Path :", "-->".join(path)
-                        print "Find path between ", self.select_nodes[0], self.select_nodes[1]
+                        path_text = "Find path between " + str(self.select_nodes[0]) + "-->" + str(self.select_nodes[1])
+                        # print "Find path between ", self.select_nodes[0], self.select_nodes[1]
+                        writeCalculations(self.textWidget, path_text, FALSE)
+                        steps_text = "Number of steps: " + str(steps) + " Path :" + "-->".join(path)
+                        # print "Number of steps: ", steps, "Path :", "-->".join(path)
+                        writeCalculations(self.textWidget, steps_text, FALSE)
 
                         for fromNode in range(len(path) - 1):
                             for toNode in self.Nodes_List[int(path[fromNode])].lineItemNo:
@@ -359,7 +365,9 @@ class simulatorWidget:
 
 
                     except Exception as e:
-                        print "Error: No path exits to", e
+                        error_text = "Error: No path exits to " + str(e) + "\n"
+                        writeCalculations(self.textWidget, error_text, TRUE)
+                        # print "Error: No path exits to", e
             elif len(self.select_nodes) > 2:
                 del self.select_nodes[0]
                 del self.select_nodes[0]
